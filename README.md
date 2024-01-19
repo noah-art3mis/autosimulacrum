@@ -14,10 +14,13 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
 -   request that gets a random post
     -   post it to stories
 
+## current
+
+-   ime (tem pt)
+-   cis (tem pt)
+
 ## upcoming
 
--   ime
--   cis
 -   beer
 -   hacking
 -   grunbaum
@@ -25,6 +28,7 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
 -   fig
 -   figlou
 -   cr
+-   musgrave
 
 ## possibly
 
@@ -60,3 +64,10 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
     -   https://playwright.dev/python/docs/intro
     -   https://oxylabs.io/blog/playwright-web-scraping
     -   https://www.browserstack.com/guide/playwright-tutorial
+
+## using prepare_data
+
+-   files must be named correctly (by page number with duplicates for each additional image per post. max 10)
+-   set them in the folder called `data-src/raw/{BOOK_NAME}`
+-   set constants in prepare_data
+-   it will make a folder for each post in `data-src/ordered/{BOOK_NAME}`, which can now be iterated by the main script
