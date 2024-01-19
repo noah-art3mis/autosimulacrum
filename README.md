@@ -71,3 +71,7 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
 -   set them in the folder called `data-src/raw/{BOOK_NAME}`
 -   set constants in prepare_data
 -   it will make a folder for each post in `data-src/ordered/{BOOK_NAME}`, which can now be iterated by the main script
+
+## TODO
+
+ - add tests

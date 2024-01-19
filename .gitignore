@@ -1,3 +1,6 @@
+data-src/raw/
+data-src/ordered/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
