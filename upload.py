@@ -7,7 +7,7 @@ from utils import count_time, get_data_folders, get_file_names_in_folder
 BOOK_FOLDER_NAME = 'test'
 
 # CONSTANTS
-DATA_PATH = f'./data-src/ordered/{BOOK_FOLDER_NAME}'
+DATA_PATH = f'./data/ordered/{BOOK_FOLDER_NAME}'
 PAGE = "https://playwright.dev/"
 
 def main():

@@ -1,34 +1,39 @@
 # auto-simulacrum / socratic-sync
 
-Instagram post automation for https://www.instagram.com/simulacro.psi/
+Instagram post automation for https://www.instagram.com/simulacro.psi/. Organize files then upload them automatically to Buffer using Playwright.
 
-## Contains
+## using `organize_files.py`
 
--   src in en (when available)
--   src in pt-BR
--   img src
+-   files must be named correctly (by page number with duplicates for each additional image per post. maximum 10 images per post because of instagram limitations). see `test` for example.
+-   put images in the folder called `data/raw/{BOOK_NAME}`
+-   set parameter in `organize_files.py`
+-   it will make a folder for each post in `data/ordered/{BOOK_NAME}/{PAGE}`, which can now be iterated on by the main script
 
+## TODO
+
+-   add tests
 -   automation
-    -   image generation
-    -   post scheduling
+    -   image generation in canva
+    -   post scheduling through buffer
+    -   post scheduling through api
 -   request that gets a random post
     -   post it to stories
 
 ## current
 
--   ime (tem pt)
--   cis (tem pt)
+-   ime (en, pt)
+-   cis (en, pt)
 
 ## upcoming
 
--   beer
--   hacking
--   grunbaum
--   ose
--   fig
--   figlou
--   cr
--   musgrave
+-   beer (pt)
+-   hacking (en)
+-   grunbaum (en)
+-   ose (en)
+-   fig (pt)
+-   figlou (pt)
+-   cr (en)
+-   musgrave (en)
 
 ## possibly
 
@@ -38,10 +43,6 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
 -   graeber
 -   pasternak & pilati
 -   gattei
-
-## done
-
--   ...
 
 ## References
 
@@ -64,14 +65,3 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/
     -   https://playwright.dev/python/docs/intro
     -   https://oxylabs.io/blog/playwright-web-scraping
     -   https://www.browserstack.com/guide/playwright-tutorial
-
-## using prepare_data
-
--   files must be named correctly (by page number with duplicates for each additional image per post. max 10)
--   set them in the folder called `data-src/raw/{BOOK_NAME}`
--   set constants in prepare_data
--   it will make a folder for each post in `data-src/ordered/{BOOK_NAME}`, which can now be iterated by the main script
-
-## TODO
-
- - add tests

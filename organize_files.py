@@ -7,8 +7,8 @@ from utils import get_file_names_in_folder
 BOOK_FOLDER_NAME = 'pmn'
 
 # CONSTANTS
-DATA_INPUT = f'./data-src/raw/{BOOK_FOLDER_NAME}'
-DATA_OUTPUT = f'./data-src/ordered/{BOOK_FOLDER_NAME}'
+DATA_INPUT = f'./data/raw/{BOOK_FOLDER_NAME}'
+DATA_OUTPUT = f'./data/ordered/{BOOK_FOLDER_NAME}'
 
 def main(input_path, output_path):
     file_names = get_file_names_in_folder(input_path)
