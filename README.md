@@ -2,11 +2,11 @@
 
 Instagram post automation for https://www.instagram.com/simulacro.psi/. Organize files then upload them automatically to Buffer using Playwright.
 
-## using `organize_files.py`
+## using organize_files.py
 
 -   files must be named correctly (by page number with duplicates for each additional image per post. maximum 10 images per post because of instagram limitations). see `test` for example.
 -   put images in the folder called `data/raw/{BOOK_NAME}`
--   set parameter in `organize_files.py`
+-   set parameter in `organize_files.py` and run it
 -   it will make a folder for each post in `data/ordered/{BOOK_NAME}/{PAGE}`, which can now be iterated on by the main script
 
 ## TODO
