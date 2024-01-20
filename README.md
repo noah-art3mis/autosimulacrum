@@ -1,6 +1,25 @@
-# auto-simulacrum / socratic-sync
+# autosimulacrum / socratic-sync
 
-Instagram post automation for https://www.instagram.com/simulacro.psi/. Organize files then upload them automatically to Buffer using Playwright.
+Instagram post automation for https://www.instagram.com/simulacro.psi/ and other utilities. Organize files then upload them automatically to Buffer using Playwright.
+
+## Utilities
+
+-   data generation
+    -   read book. mark book. check quality of ocr. remark book with desired quotations.
+    -   v1 - extract annotations in obsidian using https://github.com/munach/obsidian-extract-pdf-annotations
+    -   v2 - convert into convenient format (`batch_convert`)
+    - v3 - manually edit
+    - v4 - convert to docx
+    - v5 - translate with google
+    - v6 - end. 
+    -   ? batch fix extraction errors (with gpt3.5)
+        -   (30.000 characters is 7.000 tokens which at $0.0010 / 1K tokens is )
+    -   batch translate
+        -   check google vs gpt
+    -   organize files
+-
+
+## how to use
 
 ## using `organize_files.py`
 
@@ -10,6 +29,16 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/. Organize
 -   it will make a folder for each post in `data/ordered/{BOOK_NAME}/{PAGE}`, which can now be iterated on by the main script
 
 ## TODO
+
+-   other ways of extracting annotations
+
+    -   https://github.com/0xabu/pdfannots
+    -   try https://github.com/akaalias/obsidian-extract-pdf-highlights
+    -   try zotero extension highlight conversion
+    -   https://www.systoolsgroup.com/pdf/extractor/
+    -   https://pdf.wondershare.com/
+    -   https://www.sumnotes.net/
+    -   https://www.pdf-online.com/osa/extract.aspx?o=annots
 
 -   add tests
 -   automation
