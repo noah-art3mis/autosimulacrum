@@ -10,6 +10,10 @@ BOOK_FOLDER_NAME = 'test'
 DATA_PATH = f'./data/ordered/{BOOK_FOLDER_NAME}'
 PAGE = "https://playwright.dev/"
 
+https://playwright.dev/python/docs/input
+https://playwright.dev/python/docs/api/class-page#page-event-file-chooser
+https://playwright.dev/python/docs/locators
+
 def main():
     with sync_playwright() as p:
         start_time = time.perf_counter()

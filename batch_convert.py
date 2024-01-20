@@ -1,7 +1,8 @@
 import re
 
-input_file = "cis1.md"
-output_file = "cis2.txt"  
+BOOK_NAME = "ime"
+input_file = f"data/text/{BOOK_NAME}/{BOOK_NAME}1.md"
+output_file = f"data/text/{BOOK_NAME}/{BOOK_NAME}2.md"
 
 def extract_quotes(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:

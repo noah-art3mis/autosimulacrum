@@ -1,19 +1,20 @@
 # autosimulacrum / socratic-sync
 
-Instagram post automation for https://www.instagram.com/simulacro.psi/ and other utilities. Organize files then upload them automatically to Buffer using Playwright.
+Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as post automation, data processing, file organization, etc.
 
 ## Utilities
 
 -   data generation
     -   read book. mark book. check quality of ocr. remark book with desired quotations.
     -   v1 - extract annotations in obsidian using https://github.com/munach/obsidian-extract-pdf-annotations
+        -   TODO BUG this cuts every last letter off
     -   v2 - convert into convenient format (`batch_convert`)
-    - v3 - manually edit
-    - v4 - convert to docx
-    - v5 - translate with google
-    - v6 - end. 
+    -   v3 - manually edit
+    -   v4 - convert to docx
+    -   v5 - translate with google
+    -   v6 - end. check translation. upload
     -   ? batch fix extraction errors (with gpt3.5)
-        -   (30.000 characters is 7.000 tokens which at $0.0010 / 1K tokens is )
+        -   (1 cent per 40k chars)
     -   batch translate
         -   check google vs gpt
     -   organize files
@@ -21,7 +22,13 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/ and other
 
 ## how to use
 
-## using `organize_files.py`
+### using `batch_convert`
+
+-   set parameters
+-   fitted to deal with output from obsidian
+-   run
+
+### using `organize_files.py`
 
 -   files must be named correctly (by page number with duplicates for each additional image per post. maximum 10 images per post because of instagram limitations). see `test` for example.
 -   put images in the folder called `data/raw/{BOOK_NAME}`
@@ -30,15 +37,16 @@ Instagram post automation for https://www.instagram.com/simulacro.psi/ and other
 
 ## TODO
 
--   other ways of extracting annotations
+-   BUG this extracting method cuts off last letter of every line. not good
 
-    -   https://github.com/0xabu/pdfannots
-    -   try https://github.com/akaalias/obsidian-extract-pdf-highlights
-    -   try zotero extension highlight conversion
-    -   https://www.systoolsgroup.com/pdf/extractor/
-    -   https://pdf.wondershare.com/
-    -   https://www.sumnotes.net/
-    -   https://www.pdf-online.com/osa/extract.aspx?o=annots
+    -   other ways of extracting annotations
+        -   https://github.com/0xabu/pdfannots
+        -   try https://github.com/akaalias/obsidian-extract-pdf-highlights
+        -   try zotero extension highlight conversion
+        -   https://www.systoolsgroup.com/pdf/extractor/
+        -   https://pdf.wondershare.com/
+        -   https://www.sumnotes.net/
+        -   https://www.pdf-online.com/osa/extract.aspx?o=annots
 
 -   add tests
 -   automation
