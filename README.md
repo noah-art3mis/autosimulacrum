@@ -12,12 +12,14 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
     -   v3 - manually edit
     -   v4 - convert to docx
     -   v5 - translate with google
+    -   open ai call to fix gender? see ose p 104
     -   v6 - end. check translation. upload
     -   ? batch fix extraction errors (with gpt3.5)
         -   (1 cent per 40k chars)
     -   batch translate
         -   check google vs gpt
     -   organize files
+        -   TODO how does this deal with '317b' type files?
 -
 
 ## how to use
@@ -58,8 +60,10 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 
 ## current
 
--   ime (en, pt)
--   cis (en, pt)
+-   ime
+-   cis
+-   ose
+    -   continue from 356
 
 ## upcoming
 
