@@ -4,7 +4,7 @@ import shutil
 from utils import get_file_names_in_folder
 
 # PARAMETERS
-BOOK_FOLDER_NAME = 'pmn'
+BOOK_FOLDER_NAME = input('Enter folder name:')
 
 # CONSTANTS
 DATA_INPUT = f'./data/raw/{BOOK_FOLDER_NAME}'
@@ -14,10 +14,10 @@ def main(input_path, output_path):
     file_names = get_file_names_in_folder(input_path)
 
     for file_name in file_names:
-        match = re.search(r'(\d+)', file_name)
+        match = re.search(r'(\d+[a-z]*)', file_name)
 
         if not match:
-            print(f"\tSkipping iteration: File name does not match regex: {file_name}. Skipping iteration")
+            print(f"\tSkipping iteration: File name does not match regex: {file_name}")
             continue
             
         page_number = match.group(1)

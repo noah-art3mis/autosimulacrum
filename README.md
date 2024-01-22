@@ -39,6 +39,9 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 
 ## TODO
 
+-   fix " ' ’ “ … « »
+-   prompt for fixing the weird gender things
+-   discover how buffer orders the input files
 -   BUG this extracting method cuts off last letter of every line. not good
 
     -   other ways of extracting annotations
@@ -63,7 +66,7 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 -   ime
 -   cis
 -   ose
-    -   continue from 356
+    -   continue from 566
 
 ## upcoming
 
