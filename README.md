@@ -1,36 +1,30 @@
 # autosimulacrum / socratic-sync
 
-Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as post automation, data processing, file organization, etc.
+Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as post automation, data cleanup, file organization, etc.
 
-## Utilities
+## Workflow
 
--   data generation
-    -   read book. mark book. check quality of ocr. remark book with desired quotations.
-    -   v1 - extract annotations in obsidian using https://github.com/munach/obsidian-extract-pdf-annotations
-        -   TODO BUG this cuts every last letter off
-    -   v2 - convert into convenient format (`batch_convert`)
-    -   v3 - manually edit
-    -   v4 - convert to docx
-    -   v5 - translate with google
-    -   open ai call to fix gender? see ose p 104
-    -   v6 - end. check translation. upload
-    -   ? batch fix extraction errors (with gpt3.5)
-        -   (1 cent per 40k chars)
-    -   batch translate
-        -   check google vs gpt
-    -   organize files
-        -   TODO how does this deal with '317b' type files?
--
+1. read book. mark book. check quality of ocr. remark book with desired quotations.
+1. extract annotations from pdf
+    - try python
+1. cleanup quotes (`quote_cleanup`)
+1. convert to docx
+1. translate (google) (also fixes worst extraction errors)
+    - try gpt
+1. fix extraction errors (gpt3.5) (1 cent per 40k chars)
+1. manually check translation. manually fix things.
+1. make images. download images. organize images. (`organize_images`)
+1. make buffer post.
 
 ## how to use
 
-### using `batch_convert`
+### using `quote_cleanup`
 
 -   set parameters
 -   fitted to deal with output from obsidian
 -   run
 
-### using `organize_files.py`
+### using `organize_images`
 
 -   files must be named correctly (by page number with duplicates for each additional image per post. maximum 10 images per post because of instagram limitations). see `test` for example.
 -   put images in the folder called `data/raw/{BOOK_NAME}`
@@ -39,32 +33,37 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 
 ## TODO
 
--   fix " ' ’ “ … « »
--   prompt for fixing the weird gender things
--   discover how buffer orders the input files
--   BUG this extracting method cuts off last letter of every line. not good
+-   features and bugs
 
-    -   other ways of extracting annotations
-        -   https://github.com/0xabu/pdfannots
-        -   try https://github.com/akaalias/obsidian-extract-pdf-highlights
-        -   try zotero extension highlight conversion
-        -   https://www.systoolsgroup.com/pdf/extractor/
-        -   https://pdf.wondershare.com/
-        -   https://www.sumnotes.net/
-        -   https://www.pdf-online.com/osa/extract.aspx?o=annots
+    -   fix " ' ’ “ … « »
+    -   prompt for fixing the weird gender things (see ose p 104)
+    -   discover how buffer orders the input files
+    -   this [extraction method](https://github.com/munach/obsidian-extract-pdf-annotations) cuts off last letter of every line. not good
+        -   other ways of extracting annotations
+            -   https://github.com/0xabu/pdfannots
+            -   https://github.com/akaalias/obsidian-extract-pdf-highlights
+            -   zotero extension highlight conversion
+            -   https://www.systoolsgroup.com/pdf/extractor/
+            -   https://pdf.wondershare.com/
+            -   https://www.sumnotes.net/
+            -   https://www.pdf-online.com/osa/extract.aspx?o=annots
+    -   automation
+        -   image generation in canva
+        -   post scheduling through buffer
+        -   post scheduling through api
+    -   request that gets a random post
+        -   post it to stories
 
--   add tests
--   automation
-    -   image generation in canva
-    -   post scheduling through buffer
-    -   post scheduling through api
--   request that gets a random post
-    -   post it to stories
+-   internal
+    -   add type annotations and fix exception bubbling
+    -   add tests
+    -   invert file structure
+    -   export to yaml instead of txt
 
 ## current
 
--   ime
--   cis
+-   ime pt2
+-   cis pt2
 -   ose
     -   continue from 566
 
