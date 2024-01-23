@@ -16,7 +16,7 @@ def main(input_path, output_path):
     try:
         file_names = get_file_names_in_folder(input_path)
     except Exception as e:
-        logger.exception(str(e))
+        logger.exception('error')
         raise
 
     for file_name in file_names:

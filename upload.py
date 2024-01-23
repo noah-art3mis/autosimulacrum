@@ -30,7 +30,7 @@ def main():
             try:
                 files = get_file_names_in_folder(folder)
             except Exception as e:
-                logger.exception(str(e))
+                logger.exception('error')
                 raise
             
             page.get_by_label("Upload files").set_input_files(files)
