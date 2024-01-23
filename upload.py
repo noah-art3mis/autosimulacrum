@@ -27,7 +27,12 @@ def main():
         for folder in get_data_folders(DATA_PATH):
             page.locator(':text("Create Post")').click()
             
-            files = get_file_names_in_folder(folder)
+            try:
+                files = get_file_names_in_folder(folder)
+            except Exception as e:
+                logger.exception(str(e))
+                raise
+            
             page.get_by_label("Upload files").set_input_files(files)
 
             page.locator(':text("Save as Draft")').click()

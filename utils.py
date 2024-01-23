@@ -1,6 +1,7 @@
 import time
 import os
 import logging
+from typing import List
 
 
 def make_logger(file_name):
@@ -37,7 +38,7 @@ def count_time(start_time: float, task_name: str) -> None:
     print(f"{task_name}: {elapsed_time:.2f} seconds")
 
 
-def get_data_folders(folder_path) -> []:
+def get_data_folders(folder_path) -> List[str]:
     try:
         if not os.path.exists(folder_path):
             raise FileNotFoundError(f"The folder '{folder_path}' does not exist.")
@@ -52,20 +53,17 @@ def get_data_folders(folder_path) -> []:
 
     except Exception as e:
         print(f"Error: {e}")
+        raise
 
 
-def get_file_names_in_folder(folder_path) -> []:
-    try:
-        if not os.path.exists(folder_path):
-            raise FileNotFoundError(f"The folder '{folder_path}' does not exist.")
+def get_file_names_in_folder(folder_path) -> List[str]:
+    if not os.path.exists(folder_path):
+        raise FileNotFoundError(f"The folder '{folder_path}' does not exist.")
 
-        file_names = [
-            f
-            for f in os.listdir(folder_path)
-            if os.path.isfile(os.path.join(folder_path, f))
-        ]
+    file_names = [
+        f
+        for f in os.listdir(folder_path)
+        if os.path.isfile(os.path.join(folder_path, f))
+    ]
 
-        return file_names
-
-    except Exception as e:
-        print(f"Error: {e}")
+    return file_names
