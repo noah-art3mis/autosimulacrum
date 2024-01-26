@@ -26,6 +26,7 @@ def test_get_data_folders_success(monkeypatch) -> None:
 
     monkeypatch.setattr("utils.os.path.exists", lambda path: True)
     monkeypatch.setattr("utils.os.listdir", mock_listdir)
+    monkeypatch.setattr("utils.os.path.isdir", lambda path: True)
 
     result = get_data_folders("/existing/path")
     assert result == ["folder1", "folder2"]
@@ -42,6 +43,7 @@ def test_get_file_names_in_folder_success(monkeypatch) -> None:
 
     monkeypatch.setattr("utils.os.path.exists", lambda path: True)
     monkeypatch.setattr("utils.os.listdir", mock_listdir)
+    monkeypatch.setattr("utils.os.path.isfile", lambda path: True)
 
     result = get_file_names_in_folder("/existing/path")
     assert result == ["file1.txt", "file2.txt"]
