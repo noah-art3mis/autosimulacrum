@@ -1,5 +1,9 @@
 # autosimulacrum / socratic-sync
 
+https://www.youtube.com/watch?v=NI5IGAim8XU
+https://www.youtube.com/watch?v=6tNS--WetLI
+https://www.youtube.com/watch?v=mzlH8lp4ISA
+
 Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as post automation, data cleanup, file organization, etc.
 
 ## Workflow
@@ -25,6 +29,14 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 -   run
 
 ### using `organize_images`
+
+-   data structure:
+
+        -   {book_name}
+            -   text
+            -   img
+                -   ordered
+                -   raw
 
 -   files must be named correctly (by page number with duplicates for each additional image per post. maximum 10 images per post because of instagram limitations). see `test` for example.
 -   put images in the folder called `data/raw/{BOOK_NAME}`
@@ -56,9 +68,8 @@ Utilities for doing work for https://www.instagram.com/simulacro.psi/, such as p
 
 -   internal
     -   add type annotations and fix exception bubbling
-    -   add tests
-    -   invert file structure
     -   export to yaml instead of txt
+    -   make tests sensitive to file structure
 
 ## current
 
