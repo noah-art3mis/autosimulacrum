@@ -1,18 +1,17 @@
 import re
+import sys
 from utils.logger import make_logger
 
-# PARAMETERS
-BOOK_NAME = input("Enter folder name:")
 
-# CONSTANTS
-INPUT_FILE = f"data/text/{BOOK_NAME}/{BOOK_NAME}1.md"
-OUTPUT_FILE = f"data/text/{BOOK_NAME}/{BOOK_NAME}2.md"
-logger = make_logger(__file__)
+def extract_quotes(book_name, file_name):
+    input_file = f"./data/{book_name}/text/{file_name}"
 
-
-def extract_quotes(file_path):
-    with open(file_path, "r", encoding="utf-8") as file:
-        content = file.read()
+    try:
+        with open(input_file, "r", encoding="utf-8") as file:
+            content = file.read()
+    except FileNotFoundError as e:
+        logger.exception(f"The file {input_file} was not found. Exiting.")
+        sys.exit(1)
 
     # removes h1 and h2
     content = re.sub(r"^\s*#{1,2}.*$", "", content, flags=re.MULTILINE)
@@ -35,12 +34,14 @@ def extract_quotes(file_path):
     return quotes
 
 
-def save_quotes_to_file(quotes, OUTPUT_FILE):
+def save_quotes_to_file(quotes, output_file):
+    output_file = f"./data/{book_name}/text/{book_name}_cleanup.md"
+
     # sort pages
     sorted_quotes = sorted(quotes, key=lambda x: x["page_number"])
     logger.info("sorted pages")
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
+    with open(output_file, "w", encoding="utf-8") as file:
         for quote_data in sorted_quotes:
             # remove extraction error
             page_number = quote_data["page_number"]
@@ -49,12 +50,14 @@ def save_quotes_to_file(quotes, OUTPUT_FILE):
             cleaned_quote = quote_data["quote"].rstrip("* *highlighted by").strip()
             file.write(f"{cleaned_quote}\n\n")
             logger.info(f"write page {page_number}")
+    logger.info(f"End quote cleanup. Saved to {output_file}")
 
 
 if __name__ == "__main__":
+    logger = make_logger(__file__)
     logger.info(f"Start quote cleanup process")
+    book_name = input("Enter folder name:")
+    file_name = input("Enter file name (with extension):")
 
-    quotes = extract_quotes(INPUT_FILE)
-    save_quotes_to_file(quotes, OUTPUT_FILE)
-
-    logger.info(f"End quote cleanup. Saved to {OUTPUT_FILE}")
+    quotes = extract_quotes(book_name, file_name)
+    save_quotes_to_file(quotes, book_name)

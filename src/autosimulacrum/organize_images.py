@@ -4,20 +4,17 @@ import shutil
 from utils.file_handling import get_file_names_in_folder
 from utils.logger import make_logger
 
-# PARAMETERS
-BOOK_FOLDER_NAME = input("Enter folder name:")
 
-# CONSTANTS
-DATA_INPUT = f"./data/raw/{BOOK_FOLDER_NAME}"
-DATA_OUTPUT = f"./data/ordered/{BOOK_FOLDER_NAME}"
-logger = make_logger(__file__)
+def main(book_name, logger) -> None:
+    input_path = f"./data/{book_name}/img/raw/"
+    output_path = f"./data/{book_name}/img/ordered/"
 
+    logger.info(f"Start simulacrum data organization on '{input_path}'")
 
-def main(input_path, output_path):
     try:
         file_names = get_file_names_in_folder(input_path)
-    except Exception as e:
-        logger.exception("error")
+    except FileNotFoundError as e:
+        logger.exception(str(e))
         raise
 
     for file_name in file_names:
@@ -47,9 +44,10 @@ def main(input_path, output_path):
 
         shutil.copy(source_path, destination_path)
         logger.info(f"copied {file_name} to {new_file_name}")
+        logger.info(f"End simulacrum data organization on '{output_path}'")
 
 
-def modify_filename(file_name, page_number):
+def modify_filename(file_name, page_number) -> str:
     try:
         modified_file_name = (
             file_name
@@ -65,6 +63,6 @@ def modify_filename(file_name, page_number):
 
 
 if __name__ == "__main__":
-    logger.info(f"Start simulacrum data organization on '{DATA_INPUT}'")
-    main(DATA_INPUT, DATA_OUTPUT)
-    logger.info(f"End simulacrum data organization on '{DATA_OUTPUT}'")
+    logger = make_logger(__file__)
+    book_name = input("Enter folder name:")
+    main(book_name, logger)
