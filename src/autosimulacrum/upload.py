@@ -1,10 +1,13 @@
-import re
-from playwright.sync_api import Page, expect, sync_playwright
 import time
-from utils import count_time, get_data_folders, get_file_names_in_folder, make_logger
+from playwright.sync_api import Page, expect, sync_playwright
+
+from utils.logger import make_logger
+from utils.file_handling import get_data_folders, get_file_names_in_folder
+from utils.time_counter import count_time
+
     
 # PARAMETERS
-BOOK_FOLDER_NAME = 'test'
+BOOK_FOLDER_NAME = input("Enter folder name:")
 
 # CONSTANTS
 DATA_PATH = f'./data/ordered/{BOOK_FOLDER_NAME}'

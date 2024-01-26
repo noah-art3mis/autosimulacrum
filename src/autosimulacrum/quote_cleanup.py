@@ -1,5 +1,5 @@
 import re
-from utils import make_logger
+from utils.logger import make_logger
 
 # PARAMETERS
 BOOK_NAME = input("Enter folder name:")

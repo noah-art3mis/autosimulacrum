@@ -1,7 +1,8 @@
 import os
 import re
 import shutil
-from utils import get_file_names_in_folder, make_logger
+from utils.file_handling import get_file_names_in_folder
+from utils.logger import make_logger
 
 # PARAMETERS
 BOOK_FOLDER_NAME = input("Enter folder name:")
@@ -16,7 +17,7 @@ def main(input_path, output_path):
     try:
         file_names = get_file_names_in_folder(input_path)
     except Exception as e:
-        logger.exception('error')
+        logger.exception("error")
         raise
 
     for file_name in file_names:
